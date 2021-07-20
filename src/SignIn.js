@@ -35,7 +35,6 @@ function SignIn() {
                     id = "pass"
                     placeholder="Password"
                     name="paragraph_text" 
-                    placeholder="Password"
                     value={userPass}
                     onChange={(e) => setUserPass(e.target.value)}>
                     </input>

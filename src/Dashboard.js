@@ -1,5 +1,5 @@
 import { useState } from "react"; 
-import { Navbar, currentUser} from "./Navbar";
+import { currentUser} from "./Navbar";
 import Post from "./Post";
 
 function Dashboard() {

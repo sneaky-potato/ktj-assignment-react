@@ -1,5 +1,5 @@
 import './App.css';
-import {Navbar, currentUser} from './Navbar';
+import {Navbar} from './Navbar';
 import Dashboard from './Dashboard';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
