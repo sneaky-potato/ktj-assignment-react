@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+.Navbar {
+  font-family: 'Poiret One', cursive;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Navbar .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  color: crimson;
+  font-size: 2em;
+}
+.Navbar ul {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Navbar li{
+  margin: 5px;
+}
+.Navbar li a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Dashboard {
+  width: 100%;
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  flex-direction: column;
+  background-color: #081336;
+  align-items: center;
+  justify-content: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Dashboard .AddPost {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.Dashboard .AddPost form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: black;
+  padding: 50px;
+  font-family: 'Roboto', sans-serif;
+}
+.Dashboard .AddPost form button {
+  border-radius: 200px;
 }
 
-.App-link {
-  color: #61dafb;
+.Dashboard .AddPost form input{
+  border: none;
+  background: black;
+	border-bottom: 0.125rem solid rgba(217, 217, 226, 0.6);
+	width: 100%;
+	height: 2rem;
+	font-size: 1.0625rem;
+  margin: 10px;
+  color: #ffeba7;
+}
+.Dashboard .AddPost form textarea{
+  border: none;
+  background: black;
+	border-bottom: 0.125rem solid rgba(217, 217, 226, 0.6);
+	width: 100%;
+	height: 2rem;
+	font-size: 1.0625rem;
+  margin: 10px;
+  color: #ffeba7;
+}
+.Dashboard .AddPost form .inp:focus {
+	outline: none;
+  background: rgb(70, 67, 67);
+}
+.Dashboard .AddPost form > .inp:hover {
+	background: rgb(168, 188, 228);
+	border-color: #121212;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Dashboard .AddPost form .paragraph {
+  height: 60px;
+  word-wrap: break-word;
+}
+
+.Dashboard .AddPost form .submit-btn {
+  background: "#ffeba7";
+  color: "black";
+  cursor: pointer;
+}
+.Dashboard .ViewPost {
+  width: 50%;
+}
+
+.post-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: #ffeba7;
+  background-color: #1f2029;
+  padding: 5px;
+  width: 80%;
+
+}
+.post-card .author {
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: right;
+}
+
+.post-card .delete-icon {
+  float: right;
+  position: relative;
+}
+.post-card .edit-icon {
+  float: right;
+  position: relative;
+}
+
+.post-card:nth-child(even) {
+  float: right;
+}
+
+.post-card:nth-child(odd) {
+  float: left;
 }
