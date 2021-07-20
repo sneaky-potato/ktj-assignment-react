@@ -3,24 +3,42 @@ import { Navbar, currentUser} from "./Navbar";
 import Post from "./Post";
 
 function Dashboard() {
+
     let [data, setData] = useState([
-        { title: 'Facebook', value: 'Facebook is a bad service', author: 'Alexander', id: 1},
-        { title: 'Whatsapp', value: 'Desktop version besy', author: 'Dexter', id: 2},
-        { title: 'Niggas', value: 'I sympathesise with them', author: 'Wordlking', id: 3},
-        { title: 'Trek', value: 'Mountains are calling me', author: 'Prepare to win', id: 4},
-        { title: 'My opinion', value: 'No U', author: 'Forrestgump', id: 5},
-        { title: 'Bhaloryante', value: 'Compi less go', author: 'Void', id: 6}
+        { title: 'Bash', value: 'Bash or Shell is a command line tool that is used in open science to efficiently manipulate files and directories. Learn how to use Bash to access and move files and directories.', author: 'Al3xand3r # 9779', id: 1},
+        { title: 'Command Prompt', value: 'Command Prompt is a command line interpreter application available in most Windows operating systems. It\'s used to execute entered commands. Most of those commands automate tasks via scripts and batch files, perform advanced administrative functions, and troubleshoot or solve certain kinds of Windows issues.', author: 'Pun1sh3r # 1009', id: 2},
+        { title: 'PowerShell', value: 'PowerShell is a cross-platform task automation solution made up of a command-line shell, a scripting language, and a configuration management framework. PowerShell runs on Windows, Linux, and macOS', author: 'Yeet00t # 5699', id: 3},
     ]);
     
+    
+    const [isEdit, setIsEdit] = useState(false);
+    const [message, setMessage] = useState('');
     const [newValue, setNewValue] = useState('');
     const [newTitle, setNewTitle] = useState('');
+    const [newId, setNewId] = useState(0);
 
     const handleDelete = (id) => {
         const newData = data.filter( post => post.id !== id);
         setData(newData);
+        setMessage('Post has been deleted succesfully');
+        setTimeout(() => {  setMessage(''); }, 1500);
+
     }
     const handleEdit = (id) => {
-        
+        const newData = data.filter( post => post.id !== id);
+        const oldData = data.filter( post => post.id === id);
+        console.log("olddata = ", oldData, "title=",oldData.title);
+        setNewTitle(oldData[0].title);
+        setNewValue(oldData[0].value);
+        let title = document.getElementById('title');
+        let body = document.getElementById('value');
+        title.innerHTML = oldData[0].title;
+        body.innerHTML = oldData[0].value;
+        setMessage('Post edit mode');
+        setTimeout(() => {  setMessage(''); }, 1500);
+        setData(newData);
+        setIsEdit(true);
+        setNewId(id);
     }
 
     const handleSubmit = event => {
@@ -30,25 +48,37 @@ function Dashboard() {
         else {
             if(newValue !== '')
             {
-                let newData = {title: newTitle, value: newValue, author: currentUser, id:data.length + 1};
-                data.push(newData);
+                let tempID;
+                if (isEdit === false) tempID = data.length + 1;
+                else tempID = newId;
+                setIsEdit(false);
+                let newData = {title: newTitle, value: newValue, author: currentUser, id: tempID};
+                data.splice(tempID - 1, 0, newData);
                 console.log("New data = ", data);
                 setData(data);
                 setNewValue('');
                 setNewTitle('');
+                setMessage('Post has been added succesfully');
+                setTimeout(() => {  setMessage(''); }, 1500);
             } 
             else alert('Blank data cannot be submitted');
-        } 
+            
+        }
     }
 
   return (
     <div className="Dashboard">
         <div className="AddPost">
+            <div className="message-box">
+            {message}
+            </div>
+            
             <form>
                 <label>
                     <input 
                     placeholder="Title of your post" 
                     className="inp" 
+                    id="title"
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
                     required>
@@ -56,6 +86,7 @@ function Dashboard() {
                 </label>
                 <label>
                     <textarea className="inp paragraph"
+                    id="value"
                     rows="10"
                     cols="50"
                     name="paragraph_text" 

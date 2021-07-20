@@ -33,6 +33,12 @@
   padding: 12px 24px;
   border-radius: 6px;
 }
+.Navbar li a:hover{
+  color: rgb(175, 0, 0);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+}
 
 .Dashboard {
   width: 100%;
@@ -47,7 +53,17 @@
   width: 100%;
   margin-bottom: 20px;
 }
-.Dashboard .AddPost form {
+.message-box {
+  color: white;
+  text-align: center;
+}
+.red {
+  color: red;
+}
+.green {
+  color: chartreuse;
+}
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +75,7 @@
   border-radius: 200px;
 }
 
-.Dashboard .AddPost form input{
+input{
   border: none;
   background: black;
 	border-bottom: 0.125rem solid rgba(217, 217, 226, 0.6);
@@ -79,19 +95,24 @@
   margin: 10px;
   color: #ffeba7;
 }
-.Dashboard .AddPost form .inp:focus {
+.inp:focus {
 	outline: none;
-  background: rgb(70, 67, 67);
+  background: rgb(0, 0, 0);
 }
-.Dashboard .AddPost form > .inp:hover {
-	background: rgb(168, 188, 228);
-	border-color: #121212;
+.inp:hover {
+	background: rgb(70, 67, 67);
+	border-color: #5a5757;
 }
 
 .Dashboard .AddPost form .paragraph {
   height: 60px;
   word-wrap: break-word;
 }
+.Dashboard .AddPost form .paragraph:hover {
+  background: rgb(70, 67, 67);
+	border-color: #5a5757;
+}
+
 
 .Dashboard .AddPost form .submit-btn {
   background: "#ffeba7";
@@ -131,4 +152,12 @@
 
 .post-card:nth-child(odd) {
   float: left;
+}
+
+.post-card button {
+  padding: 0;
+  margin: 0;
+}
+.post-card img {
+  background:#ffeba7;
 }

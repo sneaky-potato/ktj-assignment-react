@@ -9,9 +9,9 @@ function Navbar() {
             Cap'n Cododo getSocial
         </div>
         <ul>
-            <li><a href = "#Intro">Sign Up</a></li>
-            <li><a href = "#Intro">Sign In / Change Account</a></li>
-            <li><a href="#special">{currentUser}</a></li>
+            <li><a href = "/sign-up">Sign Up</a></li>
+            <li><a href = "/sign-in">Sign In / Change Account</a></li>
+            <li><a href="/">{currentUser}</a></li>
         </ul>
     </div>
   );
